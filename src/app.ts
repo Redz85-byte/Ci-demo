@@ -6,7 +6,7 @@ app.use(express.json());
 
 const calculator = new Calculator();
 
-app.get('/', (req, res) => {
+app.get('/', (req: express.Request, res: express.Response) => {
   res.json({ message: 'Calculator API is running' });
 });
 
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 *   b: number
 * } 
 */
-app.post('/calculate', (req, res) => {
+app.post('/calculate', (req: express.Request, res: express.Response) => {
   try {
     const { operation, a, b } = req.body;
     let result: number;
