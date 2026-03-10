@@ -24,6 +24,10 @@ jobs:
         run: npm run test
       - name: Build
         run: npm run build
+      - name: Deploy
+        if: startsWith(github.ref, 'refs/tags/') 
+        run: curl ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        
 
   Deploy:
     runs-on: ubuntu-latest
